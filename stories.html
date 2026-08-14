@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Stories — Surendra Kumar</title>
+
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet">
+
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           STORIES PAGE
+        ========================================== */
+
+        .stories-page {
+
+            min-height: 100vh;
+
+            padding:
+                25px 25px 100px;
+
+        }
+
+
+        .stories-paper {
+
+            max-width: 1180px;
+
+            min-height:
+                calc(100vh - 50px);
+
+            margin: 0 auto;
+
+            position: relative;
+
+            background:
+
+                radial-gradient(
+                    ellipse at 15% 10%,
+                    rgba(255,255,255,.32),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    ellipse at 85% 85%,
+                    rgba(100,60,20,.08),
+                    transparent 40%
+                ),
+
+                #ead9b8;
+
+            border:
+                1px solid
+                rgba(70,45,20,.38);
+
+            box-shadow:
+                0 25px 70px
+                rgba(45,30,15,.20);
+
+            overflow: hidden;
+
+        }
+
+
+        /* =========================================
+           PAPER TEXTURE
+        ========================================== */
+
+        .stories-paper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .20;
+
+            background-image:
+
+                repeating-radial-gradient(
+                    circle at 0 0,
+
+                    rgba(60,40,20,.15) 0,
+
+                    rgba(60,40,20,.15) 1px,
+
+                    transparent 1px,
+
+                    transparent 4px
+                );
+
+            mix-blend-mode: multiply;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================== */
+
+        .stories-header {
+
+            position: relative;
+
+            z-index: 2;
+
+            min-height: 75px;
+
+            padding:
+                0 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom:
+                1px dashed
+                rgba(70,45,20,.35);
+
+        }
+
+
+        .stories-back {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            color: #7c2921;
+
+            text-decoration: none;
+
+        }
+
+
+        .stories-back:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        .stories-header-right {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================== */
+
+        .stories-intro {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                85px 90px 70px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 280px;
+
+            gap: 80px;
+
+            border-bottom:
+                1px solid
+                rgba(70,45,20,.32);
+
+        }
+
+
+        .stories-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .stories-intro h1 {
+
+            margin: 0;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size:
+                clamp(70px, 10vw, 125px);
+
+            line-height: .86;
+
+            letter-spacing: -6px;
+
+            color: #201b16;
+
+        }
+
+
+        .stories-description {
+
+            margin-top: 35px;
+
+            max-width: 650px;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 15px;
+
+            line-height: 1.9;
+
+            color: #554635;
+
+        }
+
+
+        /* =========================================
+           NOTE
+        ========================================== */
+
+        .stories-note {
+
+            align-self: end;
+
+            padding-left: 25px;
+
+            border-left:
+                1px solid
+                rgba(124,41,33,.45);
+
+        }
+
+
+        .stories-note-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .stories-note p {
+
+            margin: 0;
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 25px;
+
+            line-height: 1.25;
+
+            color: #4e4030;
+
+        }
+
+
+        /* =========================================
+           FICTION ARCHIVE
+        ========================================== */
+
+        .stories-catalogue {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                55px 90px 90px;
+
+        }
+
+
+        .stories-catalogue-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .stories-catalogue-title {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .stories-count {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #80694c;
+
+        }
+
+
+        .stories-rule {
+
+            height: 1px;
+
+            background:
+                rgba(70,45,20,.4);
+
+        }
+
+
+        /* =========================================
+           STORY ENTRY
+        ========================================== */
+
+        .story-entry {
+
+            display: grid;
+
+            grid-template-columns:
+                75px 1fr 150px;
+
+            gap: 30px;
+
+            align-items: center;
+
+            min-height: 220px;
+
+            padding:
+                35px 15px;
+
+            border-bottom:
+                1px solid
+                rgba(70,45,20,.28);
+
+            color: #201b16;
+
+            text-decoration: none;
+
+            transition:
+                padding .4s ease,
+                background .4s ease;
+
+        }
+
+
+        .story-entry:hover {
+
+            padding-left: 30px;
+
+            padding-right: 30px;
+
+            background:
+                rgba(124,41,33,.055);
+
+        }
+
+
+        .story-index {
+
+            align-self: start;
+
+            padding-top: 5px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 12px;
+
+            color: #8f3328;
+
+        }
+
+
+        .story-small-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .story-name {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 34px;
+
+            line-height: 1.1;
+
+            font-weight: 700;
+
+        }
+
+
+        .story-subtitle {
+
+            margin-top: 9px;
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 24px;
+
+            color: #765b3e;
+
+        }
+
+
+        .story-description {
+
+            max-width: 650px;
+
+            margin-top: 22px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+
+            color: #665641;
+
+        }
+
+
+        .story-status {
+
+            align-self: start;
+
+            text-align: right;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            line-height: 1.8;
+
+            letter-spacing: 1px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .story-status strong {
+
+            display: block;
+
+            color: #4c3d2d;
+
+            margin-bottom: 3px;
+
+        }
+
+/* =========================================
+   WORK IN PROGRESS STATUS
+========================================= */
+
+.wip-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #5d6848;
+
+}
+
+
+.wip-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    background: #687b45;
+
+    box-shadow:
+        0 0 0 0
+        rgba(104,123,69,.45);
+
+    animation:
+        wip-pulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes wip-pulse {
+
+    0%,
+    100% {
+
+        opacity: .45;
+
+        box-shadow:
+            0 0 0 0
+            rgba(104,123,69,.35);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        box-shadow:
+            0 0 0 5px
+            rgba(104,123,69,0);
+
+    }
+
+}
+        .story-arrow {
+
+            display: inline-block;
+
+            margin-top: 18px;
+
+            font-size: 18px;
+
+            color: #8f3328;
+
+            transition:
+                transform .35s ease;
+
+        }
+
+
+        .story-entry:hover .story-arrow {
+
+            transform:
+                translateX(8px);
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================== */
+
+        .stories-footer {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin:
+                0 90px;
+
+            padding:
+                25px 0;
+
+            border-top:
+                1px dashed
+                rgba(70,45,20,.35);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .stories-footer-mark {
+
+            color: #8f3328;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media(max-width:750px) {
+
+            .stories-page {
+
+                padding:
+                    0 10px 50px;
+
+            }
+
+
+            .stories-paper {
+
+                min-height: 100vh;
+
+            }
+
+
+            .stories-header {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .stories-header-right {
+
+                display: none;
+
+            }
+
+
+            .stories-intro {
+
+                padding:
+                    60px 25px 50px;
+
+                display: block;
+
+            }
+
+
+            .stories-intro h1 {
+
+                font-size: 70px;
+
+                letter-spacing: -4px;
+
+            }
+
+
+            .stories-description {
+
+                font-size: 14px;
+
+            }
+
+
+            .stories-note {
+
+                margin-top: 45px;
+
+            }
+
+
+            .stories-catalogue {
+
+                padding:
+                    45px 25px 70px;
+
+            }
+
+
+            .story-entry {
+
+                grid-template-columns:
+                    45px 1fr;
+
+                gap: 15px;
+
+                min-height: auto;
+
+                padding:
+                    30px 5px;
+
+            }
+
+
+            .story-entry:hover {
+
+                padding-left: 10px;
+
+                padding-right: 10px;
+
+            }
+
+
+            .story-name {
+
+                font-size: 27px;
+
+            }
+
+
+            .story-description {
+
+                font-size: 10px;
+
+            }
+
+
+            .story-status {
+
+                grid-column: 2;
+
+                text-align: left;
+
+            }
+
+
+            .story-arrow {
+
+                margin-left: 8px;
+
+                margin-top: 0;
+
+            }
+
+
+            .stories-footer {
+
+                margin:
+                    0 25px;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+        }
+/* =========================================
+   UNIVERSAL ARCHIVE HEADER
+========================================= */
+
+.archive-header {
+
+    padding: 35px 55px;
+
+    border-bottom:
+        1px dashed
+        rgba(60, 40, 20, .4);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.archive-back {
+
+    color: #7c2921;
+
+    text-decoration: none;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+}
+
+
+.archive-back:hover {
+
+    opacity: .7;
+
+    transform:
+        translateX(-3px);
+
+}
+
+
+.archive-header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #80694c;
+
+}
+
+
+.archive-stamp {
+
+    color: #8f3328;
+
+    letter-spacing: 2px;
+
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+<main class="stories-page">
+
+
+    <section class="stories-paper">
+
+
+       <!-- =====================================
+     HEADER
+====================================== -->
+
+<header class="archive-header">
+
+    <a
+        href="index.html"
+        class="archive-back"
+    >
+        ← Back to the desk
+    </a>
+
+    <div class="archive-header-right">
+
+        <span>
+            The Writing Desk
+        </span>
+
+        <span class="archive-stamp">
+            SK
+        </span>
+
+    </div>
+
+</header>
+
+
+
+        <!-- =====================================
+             INTRO
+        ====================================== -->
+
+        <section class="stories-intro">
+
+
+            <div>
+
+                <div class="stories-label">
+                    Fiction
+                </div>
+
+
+                <h1>
+                    Stories
+                </h1>
+
+
+                <p class="stories-description">
+
+                    Short stories, longer narratives,
+                    unfinished worlds and characters
+                    that refuse to remain on the page.
+
+                </p>
+
+            </div>
+
+
+            <aside class="stories-note">
+
+                <div class="stories-note-label">
+                    From the desk
+                </div>
+
+
+                <p>
+                    Some stories end.
+
+                    Some are still
+                    becoming.
+                </p>
+
+            </aside>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             ARCHIVE
+        ====================================== -->
+
+        <section class="stories-catalogue">
+
+
+            <div class="stories-catalogue-header">
+
+                <div class="stories-catalogue-title">
+                    The Fiction Archive
+                </div>
+
+
+                <div class="stories-count">
+                    02 / 02
+                </div>
+
+            </div>
+
+
+            <div class="stories-rule"></div>
+
+
+
+            <!-- =================================
+                 WORTHY HUMANS
+            ================================== -->
+
+            <a
+                href="story-01.html"
+                class="story-entry"
+            >
+
+
+                <div class="story-index">
+                    01
+                </div>
+
+
+                <div>
+
+                    <div class="story-small-label">
+                        Short Story · Work in Progress
+                    </div>
+
+
+                    <div class="story-name">
+                        WORTHY HUMANS
+                    </div>
+
+
+                    <div class="story-subtitle">
+                        A story about ambition, failure
+                        and the need to be seen.
+                    </div>
+
+
+                    <div class="story-description">
+
+                        Raghav, Veer and Akhil are three
+                        young men navigating work, exams,
+                        ambition and expectations while
+                        trying to figure out what makes a
+                        person worthy.
+
+                    </div>
+
+                </div>
+
+
+            <div class="story-status">
+
+    <strong>
+        Fiction
+    </strong>
+
+    <span class="wip-status">
+        <span class="wip-dot"></span>
+        Work in progress
+    </span>
+
+    <br>
+
+    Updated later
+
+    <br>
+
+    <span class="story-arrow">
+        →
+    </span>
+
+</div>    
+
+            </a>
+
+<!-- =================================
+     STORY 02
+================================== -->
+
+<a
+    href="story-02.html"
+    class="story-entry"
+>
+
+    <div class="story-index">
+        02
+    </div>
+
+
+    <div>
+
+        <div class="story-small-label">
+            Short Story · Work in Progress
+        </div>
+
+
+        <div class="story-name">
+            UNTITLED
+        </div>
+
+
+        <div class="story-subtitle">
+            A conversation between two
+            strangers on a balcony.
+        </div>
+
+
+        <div class="story-description">
+
+            Arjun escapes a loud party and finds
+            himself sharing a quiet balcony with
+            Diya, a DJ who seems to understand
+            the need to disappear for a while.
+
+        </div>
+
+    </div>
+
+
+    <div class="story-status">
+
+        <strong>
+            Fiction
+        </strong>
+
+        <span class="wip-status">
+            <span class="wip-dot"></span>
+            Work in progress
+        </span>
+
+        <br>
+
+        Updated later
+
+        <br>
+
+        <span class="story-arrow">
+            →
+        </span>
+
+    </div>
+
+
+</a>
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="stories-footer">
+
+            <span>
+                The Writing Desk · Stories
+            </span>
+
+
+            <span class="stories-footer-mark">
+                02 work archived
+            </span>
+
+        </footer>
+
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>

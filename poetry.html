@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Poetry — Surendra Kumar</title>
+
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            background: #d8c39d;
+
+            color: #201b16;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            padding: 20px;
+
+        }
+
+
+        /* PAPER */
+
+        .paper {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            min-height: calc(100vh - 40px);
+
+            background:
+                radial-gradient(
+                    ellipse at 20% 20%,
+                    rgba(255,255,255,.35),
+                    transparent 40%
+                ),
+                #ead9b8;
+
+            border:
+                1px solid
+                rgba(60,40,20,.4);
+
+            box-shadow:
+                0 20px 60px
+                rgba(40,25,10,.25);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        /* PAPER GRAIN */
+
+        .paper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .22;
+
+            background-image:
+                repeating-radial-gradient(
+                    circle at 0 0,
+                    rgba(60,40,20,.15) 0,
+                    rgba(60,40,20,.15) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            mix-blend-mode: multiply;
+
+        }
+
+
+        /* HEADER */
+
+        header {
+
+            padding:
+                35px 55px;
+
+            border-bottom:
+                1px dashed
+                rgba(60,40,20,.4);
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .back {
+
+            color: #7c2921;
+
+            text-decoration: none;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .back:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        .page-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: #80694c;
+
+        }
+
+
+        /* MAIN */
+
+        main {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                90px 80px;
+
+        }
+
+
+        .category {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        h1 {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size:
+                clamp(60px, 10vw, 120px);
+
+            line-height: .9;
+
+            letter-spacing: -5px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .intro {
+
+            max-width: 600px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            color: #514334;
+
+            margin-bottom: 90px;
+
+        }
+
+
+        /* POEM LIST */
+
+        .poem-list {
+
+            border-top:
+                1px solid
+                rgba(60,40,20,.4);
+
+        }
+
+
+        .poem {
+
+            display: grid;
+
+            grid-template-columns:
+                80px 1fr 100px;
+
+            align-items: center;
+
+            gap: 30px;
+
+            padding:
+                35px 10px;
+
+            border-bottom:
+                1px solid
+                rgba(60,40,20,.25);
+
+            text-decoration: none;
+
+            color: #201b16;
+
+            transition:
+                padding .35s ease,
+                background .35s ease;
+
+        }
+
+
+        .poem:hover {
+
+            padding-left: 25px;
+
+            padding-right: 25px;
+
+            background:
+                rgba(124,41,33,.07);
+
+        }
+
+
+        .number {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 12px;
+
+            color: #8f3328;
+
+        }
+
+
+        .poem-title {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+        }
+
+
+        .poem-description {
+
+            margin-top: 8px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 11px;
+
+            color: #76634d;
+
+        }
+
+
+        .date {
+
+            text-align: right;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            color: #80694c;
+
+        }
+
+
+        .arrow {
+
+            display: inline-block;
+
+            margin-left: 10px;
+
+            color: #8f3328;
+
+            transition:
+                transform .3s ease;
+
+        }
+
+
+        .poem:hover .arrow {
+
+            transform:
+                translateX(6px);
+
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            margin-top: 100px;
+
+            padding-top: 25px;
+
+            border-top:
+                1px dashed
+                rgba(60,40,20,.35);
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            color: #80694c;
+
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width:700px) {
+           .page-label {
+               display: none !important;
+            }
+            body {
+                padding: 0;
+            }
+
+            .paper {
+                min-height: 100vh;
+            }
+
+            header {
+                padding: 25px;
+            }
+
+            main {
+                padding:
+                    60px 25px;
+            }
+
+            h1 {
+                font-size: 65px;
+            }
+
+            .intro {
+                margin-bottom: 60px;
+            }
+
+            .poem {
+
+                grid-template-columns:
+                    45px 1fr;
+
+                gap: 10px;
+
+            }
+
+            .date {
+
+                grid-column:
+                    2;
+
+                text-align: left;
+
+            }
+
+        }
+/* =========================================
+   UNIVERSAL ARCHIVE HEADER
+========================================= */
+
+.archive-header {
+
+    padding: 35px 55px;
+
+    border-bottom:
+        1px dashed
+        rgba(60, 40, 20, .4);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.archive-back {
+
+    color: #7c2921;
+
+    text-decoration: none;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+}
+
+
+.archive-back:hover {
+
+    opacity: .7;
+
+    transform:
+        translateX(-3px);
+
+}
+
+
+.archive-header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #80694c;
+
+}
+
+
+.archive-stamp {
+
+    color: #8f3328;
+
+    letter-spacing: 2px;
+
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="paper">
+
+
+    <!-- =====================================
+     HEADER
+====================================== -->
+
+<header class="archive-header">
+
+    <a
+        href="index.html"
+        class="archive-back"
+    >
+        ← Back to the desk
+    </a>
+
+    <div class="archive-header-right">
+
+        <span>
+            The Writing Desk
+        </span>
+
+        <span class="archive-stamp">
+            SK
+        </span>
+
+    </div>
+
+</header>
+
+
+
+    <!-- CONTENT -->
+
+    <main>
+
+
+        <div class="category">
+            The Poetry Archive
+        </div>
+
+
+        <h1>
+            Poetry
+        </h1>
+
+
+        <p class="intro">
+
+            A collection of poems, fragments,
+            observations and things that were
+            easier to write than say.
+
+        </p>
+
+
+
+        <!-- POEM LIST -->
+
+        <div class="poem-list">
+
+
+            <!-- POEM 01 -->
+
+            <a
+                href="poem-01.html"
+                class="poem"
+            >
+
+                <div class="number">
+                    01
+                </div>
+
+
+                <div>
+
+                    <div class="poem-title">
+                        Aakhir Tu Darta hai Kyun ?
+                    </div>
+
+                    <div class="poem-description">
+                        A poem about fear and self doubt
+                    </div>
+
+                </div>
+
+
+                <div class="date">
+                    2026
+                    <span class="arrow">→</span>
+                </div>
+
+            </a>
+
+
+
+            <!-- POEM 02 -->
+
+            <a
+                href="#"
+                class="poem"
+            >
+
+                <div class="number">
+                    02
+                </div>
+
+
+                <div>
+
+                    <div class="poem-title">
+                        Untitled
+                    </div>
+
+                    <div class="poem-description">
+                        Sometimes the most honest
+                        poems refuse to have a title.
+                    </div>
+
+                </div>
+
+
+                <div class="date">
+                    2026
+                    <span class="arrow">→</span>
+                </div>
+
+            </a>
+
+
+
+            <!-- POEM 03 -->
+
+            <a
+                href="#"
+                class="poem"
+            >
+
+                <div class="number">
+                    03
+                </div>
+
+
+                <div>
+
+                    <div class="poem-title">
+                        Another Beginning
+                    </div>
+
+                    <div class="poem-description">
+                        A fragment waiting
+                        to become something more.
+                    </div>
+
+                </div>
+
+
+                <div class="date">
+                    2026
+                    <span class="arrow">→</span>
+                </div>
+
+            </a>
+
+
+        </div>
+
+
+
+        <footer>
+
+            The collection is always unfinished.
+
+        </footer>
+
+
+    </main>
+
+
+</div>
+
+
+</body>
+
+</html>

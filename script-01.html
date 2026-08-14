@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Rozmarra — Surendra Kumar</title>
+
+    <!-- Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet">
+
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           SCRIPT PAGE
+        ========================================= */
+
+        .script-page {
+
+            min-height: 100vh;
+
+            padding: 35px 25px 100px;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        /* =========================================
+           BACK LINK
+        ========================================= */
+
+        .script-back {
+
+            max-width: 1050px;
+
+            margin: 0 auto 25px;
+
+        }
+
+
+        .script-back a {
+
+            color: #7c2921;
+
+            text-decoration: none;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .script-back a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =========================================
+           TITLE CARD
+        ========================================= */
+
+        .script-title-card {
+
+            max-width: 1050px;
+
+            min-height: 500px;
+
+            margin: 0 auto;
+
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 70px 40px;
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255,255,255,.28),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(90,50,20,.08),
+                    transparent 40%
+                ),
+
+                #ead8b4;
+
+            border:
+                1px solid
+                rgba(70,45,20,.4);
+
+            box-shadow:
+                0 18px 45px
+                rgba(55,35,15,.18);
+
+            overflow: hidden;
+
+        }
+
+
+        /* paper texture */
+
+        .script-title-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            opacity: .22;
+
+            pointer-events: none;
+
+            background-image:
+
+                repeating-radial-gradient(
+                    circle at 0 0,
+                    rgba(60,40,20,.16) 0,
+                    rgba(60,40,20,.16) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            mix-blend-mode: multiply;
+
+        }
+
+
+        .script-card-label {
+
+            position: relative;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .script-main-title {
+
+            position: relative;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size:
+                clamp(65px, 11vw, 125px);
+
+            line-height: .9;
+
+            letter-spacing: -5px;
+
+            margin: 0;
+
+            color: #211b16;
+
+        }
+
+
+        .script-subtitle {
+
+            position: relative;
+
+            margin-top: 25px;
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 30px;
+
+            color: #8f3328;
+
+        }
+
+
+        .script-rule {
+
+            position: relative;
+
+            width: 90px;
+
+            height: 1px;
+
+            background: #8f3328;
+
+            margin: 35px 0;
+
+        }
+
+
+        .script-meta {
+
+            position: relative;
+
+            display: flex;
+
+            gap: 55px;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+            letter-spacing: 1px;
+
+            color: #665641;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .script-meta strong {
+
+            display: block;
+
+            color: #2b241d;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        /* =========================================
+           SCRIPT READER
+        ========================================= */
+
+        .script-reader {
+
+            max-width: 850px;
+
+            margin: 70px auto 0;
+
+            padding: 75px 90px 100px;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 15%,
+                    rgba(255,255,255,.30),
+                    transparent 35%
+                ),
+
+                #f0e3c8;
+
+            border:
+                1px solid
+                rgba(70,45,20,.32);
+
+            box-shadow:
+                0 20px 55px
+                rgba(50,30,10,.20);
+
+            position: relative;
+
+        }
+
+
+        /* paper grain */
+
+        .script-reader::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .16;
+
+            background-image:
+
+                repeating-radial-gradient(
+                    circle at 0 0,
+                    rgba(60,40,20,.16) 0,
+                    rgba(60,40,20,.16) 1px,
+                    transparent 1px,
+                    transparent 5px
+                );
+
+            mix-blend-mode: multiply;
+
+        }
+
+
+        .reader-header {
+
+            position: relative;
+
+            border-bottom:
+                1px dashed
+                rgba(70,45,20,.35);
+
+            padding-bottom: 25px;
+
+            margin-bottom: 55px;
+
+        }
+
+
+        .reader-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .reader-sequence {
+
+            margin-top: 10px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 12px;
+
+            color: #665641;
+
+        }
+
+
+        /* =========================================
+           SCREENPLAY TYPOGRAPHY
+        ========================================= */
+
+        .screenplay {
+
+            position: relative;
+
+            font-family:
+                "Courier New",
+                Courier,
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.65;
+
+            color: #201b16;
+
+        }
+
+
+        .screenplay p {
+
+            margin: 0 0 25px;
+
+        }
+
+
+        .scene-heading {
+
+            font-weight: 700;
+
+            margin-top: 45px !important;
+
+            margin-bottom: 25px !important;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .shot-heading {
+
+            font-weight: 700;
+
+            margin-top: 35px !important;
+
+        }
+
+
+        .sound {
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .action {
+
+            margin-bottom: 25px !important;
+
+        }
+
+
+        .direction {
+
+            font-style: italic;
+
+        }
+
+
+        .bracket-note {
+
+            display: block;
+
+            margin: 35px 0;
+
+            padding: 18px 20px;
+
+            border-left:
+                3px solid
+                #8f3328;
+
+            background:
+                rgba(143,51,40,.06);
+
+        }
+
+
+        .transition {
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            text-decoration: underline;
+
+            margin-top: 35px !important;
+
+        }
+
+
+        .newspaper {
+
+            margin: 20px 0 30px;
+
+            padding: 20px;
+
+            border:
+                1px dashed
+                rgba(70,45,20,.45);
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .ending {
+
+            text-align: center;
+
+            margin-top: 70px !important;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        /* =========================================
+           FILM NOTE
+        ========================================= */
+
+        .film-note {
+
+            max-width: 850px;
+
+            margin: 50px auto 0;
+
+            padding: 50px 60px;
+
+            border-top:
+                1px dashed
+                rgba(70,45,20,.35);
+
+            border-bottom:
+                1px dashed
+                rgba(70,45,20,.35);
+
+        }
+
+
+        .film-note-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .film-note h2 {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 34px;
+
+            margin: 0 0 25px;
+
+        }
+
+
+        .film-note p {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 15px;
+
+            line-height: 1.9;
+
+            color: #514334;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media(max-width:700px) {
+
+            .script-page {
+
+                padding:
+                    20px 12px 60px;
+
+            }
+
+
+            .script-title-card {
+
+                min-height: 430px;
+
+                padding:
+                    50px 20px;
+
+            }
+
+
+            .script-main-title {
+
+                font-size: clamp(38px, 13vw, 55px);
+
+                letter-spacing: -3px;
+
+            }
+
+
+            .script-meta {
+
+                gap: 25px;
+
+            }
+
+
+            .script-reader {
+
+                margin-top: 40px;
+
+                padding:
+                    45px 25px 65px;
+
+            }
+
+
+            .screenplay {
+
+                font-size: 12px;
+
+                line-height: 1.65;
+
+            }
+
+
+            .film-note {
+
+                padding:
+                    40px 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<main class="script-page">
+
+
+    <!-- BACK -->
+
+    <div class="script-back">
+
+        <a href="scripts.html">
+            ← Back to scripts
+        </a>
+
+    </div>
+
+
+
+    <!-- =====================================
+         TITLE CARD
+    ====================================== -->
+
+    <section class="script-title-card">
+
+
+        <div class="script-card-label">
+            Film Script
+        </div>
+
+
+        <h1 class="script-main-title">
+            ROZMARRA
+        </h1>
+
+
+        <div class="script-subtitle">
+            a mundane routine
+        </div>
+
+
+        <div class="script-rule"></div>
+
+
+        <div class="script-meta">
+
+            <div>
+                <strong>Sequence</strong>
+                "Inside the house"
+            </div>
+
+
+            <div>
+                <strong>Written by</strong>
+                Suri
+            </div>
+
+
+            <div>
+                <strong>Updated</strong>
+                Oct 14, 2025
+            </div>
+
+
+            <div>
+                <strong>Format</strong>
+                4:3 · Phone
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         SCRIPT READER
+    ====================================== -->
+
+    <article class="script-reader">
+
+
+        <header class="reader-header">
+
+            <div class="reader-label">
+                Film Script
+            </div>
+
+            <div class="reader-sequence">
+                Sequence: "Inside the house"
+            </div>
+
+        </header>
+
+
+
+        <div class="screenplay">
+
+
+            <!-- SCENES -->
+
+            <p class="scene-heading">
+                SCENES:
+            </p>
+
+
+            <!-- SCENE 1 -->
+
+            <p class="scene-heading">
+                1. INT. HOUSE - DAY
+            </p>
+
+
+            <p>
+                <span class="sound">
+                    SOUND
+                </span>
+                of a quiet, rhythmic ticking clock
+                throughout.
+            </p>
+
+
+            <p class="action">
+                The scene opens with a man with his head
+                down and sleeping on the table. He
+                suddenly wakes up and hears the chirping
+                of birds.
+            </p>
+
+
+            <p class="action">
+                Fast shots of him opening the tap
+                (water gushing sound), brushing his teeth
+                (scraping of teeth sound), and wiping his
+                mouth. Followed by the shot of him going
+                down to the kitchen and pouring coffee
+                into his cup, and sipping it slowly.
+            </p>
+
+
+            <p class="shot-heading">
+                CLOSE UP (CU) - HANDS:
+            </p>
+
+            <p>
+                The Man's pale fingers meticulously
+                arrange three identical steel spoons,
+                perfectly parallel, next to an empty
+                plate, which sits on the floor. He pours
+                hot water into a cup. The movements are
+                slow and precise.
+            </p>
+
+
+            <p class="shot-heading">
+                MID SHOT (MS) - Floor:
+            </p>
+
+            <p>
+                The Man sits alone in the large dining
+                hall, white marble floor. He eats plain
+                rice from the bowl. The room is vast,
+                high-ceilinged (over the head shot from
+                2nd floor), and almost sparsely furnished.
+                The ticking clock is slightly louder here.
+            </p>
+
+
+            <p class="shot-heading">
+                WIDE SHOT (WS) - LIVING ROOM:
+            </p>
+
+            <p>
+                The Man performs a single, slow push-up
+                in the exact centre of the empty living
+                room. He holds the "up" position for an
+                unnaturally long time, perfectly still,
+                before slowly lowering himself.
+            </p>
+
+
+            <p class="transition">
+                CUT TO
+            </p>
+
+
+            <!-- CONTINUATION -->
+
+            <p class="shot-heading">
+                POINT OF VIEW (POV) - WINDOW:
+            </p>
+
+            <p>
+                From his perspective, looking out a clean
+                window. We see only a quiet street
+                outside: a single car drives by, then
+                silence.
+            </p>
+
+
+            <p class="shot-heading">
+                CU - FINGERS:
+            </p>
+
+            <p>
+                His index finger slowly traces the floral
+                pattern on the bed. His movement is
+                devoid of curiosity.
+            </p>
+
+
+            <p class="shot-heading">
+                MID SHOT (MS) - Reflection of window:
+            </p>
+
+            <p>
+                Shows his reflection captured from the
+                window (5-10 sec shot). He is sitting
+                straight on a chair and starts a song on
+                his phone. It's an old song from
+                Bollywood. The camera focuses on him
+                putting his head down, and the song plays
+                slowly in the background.
+            </p>
+
+
+            <p>
+                Next shot of him waking up suddenly, same
+                as the one in the beginning.
+            </p>
+
+
+            <p>
+                This whole sequence repeats two times,
+                to show the passing of time.
+            </p>
+
+
+            <div class="bracket-note">
+                [The montage always concludes with:<br><br>
+
+                <strong>
+                    INT. HOUSE - NIGHT
+                </strong>
+
+                He is sitting on the chair and puts his
+                head down, listening to the same song.]
+            </div>
+
+
+
+            <!-- SCENE 2 -->
+
+            <p class="scene-heading">
+                2. INT. HOUSE - NIGHT
+            </p>
+
+
+            <p>
+                The Man sits on a long sofa. The room is
+                dimly lit by a single, small light,
+                casting long, unsettling shadows. He
+                stares blankly at an unpowered, dark
+                television screen. The rhythmic
+                <span class="sound">TICKING CLOCK</span>
+                is the only sound.
+            </p>
+
+
+            <p>
+                <span class="sound">
+                    SOUND
+                </span>
+                of a distant, metallic
+                <strong>GATE CREAKING</strong> open.
+            </p>
+
+
+            <p>
+                The Man's head snaps up, his body tenses.
+                His eyes, in the low light, are wide and
+                alert, not with curiosity, but with faint
+                fear.
+            </p>
+
+
+            <p>
+                The camera
+                <strong>PANS SLOWLY</strong>,
+                now a tight close-up (CU). He is looking
+                directly into the camera lens, not
+                blinking. His breathing is shallow,
+                almost non-existent.
+            </p>
+
+
+            <p>
+                <span class="sound">
+                    SOUND
+                </span>
+                of car doors shutting, muffled voices
+                speaking softly.
+            </p>
+
+
+            <p>
+                He breaks his stare. His fear transforms,
+                and he quietly climbs up the stairs.
+            </p>
+
+
+
+            <!-- SCENE 3 -->
+
+            <p class="scene-heading">
+                3. INT. HOUSE CONTINUOUS
+            </p>
+
+
+            <p>
+                <strong>ACTION MODE:</strong>
+                The camera, now moving smoothly, follows
+                THE MAN as he runs silently, almost
+                gliding, up the stairs. Each step is
+                perfectly weighted, making no sound. He
+                hides inside a dark room just beside the
+                entrance. His body is pressed against the
+                wall, and he is breathing slowly. He
+                stares into the darkness and remains still.
+            </p>
+
+
+
+            <!-- SCENE 4 -->
+
+            <p class="scene-heading">
+                4. EXT. FRONT DOOR - CONTINUOUS
+            </p>
+
+
+            <p>
+                A shot of THE MOTHER and her DAUGHTER
+                standing at the front door. The Mother is
+                fumbling with a key, her movements slightly
+                hesitant.
+            </p>
+
+
+            <p>
+                The lock <strong>CLICKS.</strong>
+                The Mother pushes the heavy door open,
+                revealing the dimly lit interior.
+            </p>
+
+
+
+            <!-- SCENE 5 -->
+
+            <p class="scene-heading">
+                5. INT. HALLWAY - CONTINUOUS
+            </p>
+
+
+            <p>
+                The Mother and Daughter step casually into
+                the hall, tired from their trip to the
+                little girl's grandparents.
+            </p>
+
+
+            <p>
+                The mother notices a small light is on,
+                and waves off, thinking she might have left
+                it on. On the kitchen counter, visible from
+                the hall, sits the bowl with the perfectly
+                arranged spoons inside.
+            </p>
+
+
+            <p>
+                The mother enters and is confused, and fear
+                starts to settle in.
+            </p>
+
+
+            <p>
+                “What is this?” she thinks to herself.
+            </p>
+
+
+            <p>
+                The Daughter clings to her mother's arm,
+                her face pale with fear.
+            </p>
+
+
+            <p>
+                <strong>
+                    MOTHER
+                </strong>
+                (signals the Daughter to stay quiet, and
+                that she is going upstairs to check)
+            </p>
+
+
+            <p>
+                The Mother gives her daughter a quick,
+                reassuring squeeze. She walks slowly,
+                deliberately, towards 1st floor.
+            </p>
+
+
+            <p class="shot-heading">
+                INT. 1st Floor - CONTINUOUS
+            </p>
+
+
+            <p>
+                <strong>
+                    LOW ANGLE Close Up - THE MAN:
+                </strong>
+                He is now standing in the darkest corner
+                of the room, almost invisible. His
+                breathing is shallow. His hand moves,
+                slowly, to his waistband. He extracts a
+                long, gleaming kitchen knife. A dim light
+                reflects off the blade, revealing the
+                sharpness of the blade. There is no fear
+                in his eyes now, only a chilling,
+                predatory stillness. He hears footsteps
+                closing in.
+            </p>
+
+
+            <p class="shot-heading">
+                INT. Room ENTRANCE - CONTINUOUS
+            </p>
+
+
+            <p>
+                The Mother reaches the room's doorway.
+                Her hand finds the main light switch on
+                the wall. She hesitates for a beat,
+                gathering her courage.
+            </p>
+
+
+            <p class="shot-heading">
+                CU - MOTHER'S FINGERS:
+            </p>
+
+
+            <p>
+                Her fingers, trembling slightly, reach
+                for and flip the switch.
+            </p>
+
+
+            <p>
+                <span class="sound">
+                    SOUND
+                </span>
+                of a sharp, loud <strong>CLICK.</strong>
+            </p>
+
+
+
+            <!-- SCENE 6 -->
+
+            <p class="scene-heading">
+                6. INT. Room - CONTINUOUS
+            </p>
+
+
+            <p>
+                The harsh, cold white light
+                <strong>FLICKERS</strong> on, then hums to
+                full brightness, illuminating the room.
+            </p>
+
+
+            <p>
+                The Man is no longer in the corner. He
+                stands silently 2 feet from the mother,
+                the knife held loosely at his side.
+            </p>
+
+
+            <p>
+                The Mother freezes, her eyes widening in
+                disbelief and then utter terror.
+            </p>
+
+
+            <p>
+                The man <strong>SMILES</strong> for a brief
+                period. It's the smile of a demon.
+            </p>
+
+
+            <div class="bracket-note">
+                [His face looks terrifying, an empty
+                expression, devoid of warmth. Their eyes
+                lock.]
+            </div>
+
+
+            <p>
+                A RAPID, BACK-AND-FORTH SEQUENCE OF
+                EXTREME CLOSE UPS:
+            </p>
+
+
+            <p>
+                1. EXTREME CU - THE MOTHER'S EYES:
+                Wide open, filled with pure horror. A
+                single, panicked gasp escapes her.
+            </p>
+
+
+            <p>
+                2. EXTREME CU - THE MAN'S EYES:
+                Cold, still, utterly emotionless.
+            </p>
+
+
+            <p>
+                3. EXTREME CU - THE MOTHER'S EYES:
+                Her mouth opens slightly, a silent scream
+                forming, but is cut short...
+            </p>
+
+
+            <p>
+                4. EXTREME CU - THE MAN:
+                He lunges forward and slashes the throat.
+            </p>
+
+
+            <p class="transition">
+                CUT TO BLACK.
+            </p>
+
+
+            <p>
+                <span class="sound">
+                    SOUND
+                </span>
+                of a wet, sharp SLASH.
+            </p>
+
+
+            <p>
+                There is now an eerie silence inside the
+                house.
+            </p>
+
+
+            <p>
+                OVER THE HEAD SHOT - Girl standing alone
+                in the hall, unaware of what has happened
+                upstairs.
+            </p>
+
+
+
+            <!-- SCENE 7 -->
+
+            <p class="scene-heading">
+                7. EXT. STREET - NIGHT
+            </p>
+
+
+            <p>
+                <span class="sound">
+                    SOUND
+                </span>
+                of a high-pitched, aggressive
+                <strong>POLICE SIREN</strong> growing
+                rapidly louder.
+            </p>
+
+
+            <p>
+                A POLICE VEHICLE, its red and blue lights
+                speeding down the street at full speed.
+            </p>
+
+
+
+            <!-- SCENE 8 -->
+
+            <p class="scene-heading">
+                8. EXT. Random Location - Night
+                (The next day)
+            </p>
+
+
+            <p>
+                The scene opens with a shot of a silent,
+                moonless night.
+            </p>
+
+
+            <p>
+                The camera pans to the front door of a
+                house where 3-4 old newspapers lie.
+            </p>
+
+
+            <p>
+                Close UP - A hand comes into the frame and
+                picks up the paper. camera focuses on the
+                headline, it reads....
+            </p>
+
+
+            <div class="newspaper">
+                "MOTHER AND DAUGHTER FOUND BRUTALLY
+                MURDERED IN HOME. KILLER AT LARGE."
+            </div>
+
+
+            <p>
+                The man enters the house.
+            </p>
+
+
+            <p>
+                We follow THE MAN from behind. He walks
+                calmly through the spacious, empty hall
+                of a new, different house. The house is
+                empty and sparsely furnished. He moves
+                with a familiar rhythm.
+            </p>
+
+
+            <p>
+                We take a close-up of him biting into an
+                apple, as soon as he bites, and we hear a
+                crunch, end scene.
+            </p>
+
+
+            <p class="transition">
+                FADE TO BLACK
+            </p>
+
+
+            <p class="ending">
+                The title ROZMARRA fades in slowly.
+            </p>
+
+
+            <p class="ending">
+                THE END
+            </p>
+
+
+        </div>
+
+
+    </article>
+
+
+
+    <!-- =====================================
+         ABOUT THE FILM
+    ====================================== -->
+
+    <section class="film-note">
+
+
+        <div class="film-note-label">
+            About the film
+        </div>
+
+
+        <h2>
+            Rozmarra
+        </h2>
+
+
+        <p>
+            "Rozmarra" is a story of a homeless loner
+            who secretly lives in empty homes and moves
+            from one to another, until his routine is
+            shattered when the real owners of one house
+            return unexpectedly.
+        </p>
+
+
+        <p>
+            You never hear any dialogue in this film;
+            it is dictated by visuals and the sound of
+            the actions. And the face of the man is never
+            revealed, only the close-up of his eyes,
+            mouth, hands, and silhouette.
+        </p>
+
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>

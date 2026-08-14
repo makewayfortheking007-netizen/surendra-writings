@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Scripts — Surendra Kumar</title>
+
+
+    <!-- =========================================
+         FONTS
+    ========================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet">
+
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           SCRIPTS ARCHIVE
+        ========================================== */
+
+        .scripts-page {
+
+            min-height: 100vh;
+
+            padding: 25px 25px 100px;
+
+            position: relative;
+
+        }
+
+
+        /* =========================================
+           ARCHIVE PAPER
+        ========================================== */
+
+        .scripts-paper {
+
+            max-width: 1180px;
+
+            min-height: calc(100vh - 50px);
+
+            margin: 0 auto;
+
+            position: relative;
+
+            background:
+
+                radial-gradient(
+                    ellipse at 15% 10%,
+                    rgba(255,255,255,.32),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    ellipse at 85% 85%,
+                    rgba(100,60,20,.08),
+                    transparent 40%
+                ),
+
+                #ead9b8;
+
+            border:
+                1px solid
+                rgba(70,45,20,.38);
+
+            box-shadow:
+                0 25px 70px
+                rgba(45,30,15,.20);
+
+            overflow: hidden;
+
+        }
+
+
+        /* =========================================
+           PAPER TEXTURE
+        ========================================== */
+
+        .scripts-paper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .20;
+
+            background-image:
+
+                repeating-radial-gradient(
+                    circle at 0 0,
+
+                    rgba(60,40,20,.15) 0,
+
+                    rgba(60,40,20,.15) 1px,
+
+                    transparent 1px,
+
+                    transparent 4px
+                );
+
+            mix-blend-mode: multiply;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================== */
+
+        .scripts-header {
+
+            position: relative;
+
+            z-index: 2;
+
+            min-height: 75px;
+
+            padding:
+                0 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom:
+                1px dashed
+                rgba(70,45,20,.35);
+
+        }
+
+
+        .scripts-back {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            color: #7c2921;
+
+            text-decoration: none;
+
+        }
+
+
+        .scripts-back:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        .scripts-header-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .scripts-stamp {
+
+            color: #8f3328;
+
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================== */
+
+        .scripts-intro {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                85px 90px 70px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 280px;
+
+            gap: 80px;
+
+            border-bottom:
+                1px solid
+                rgba(70,45,20,.32);
+
+        }
+
+
+        .scripts-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .scripts-intro h1 {
+
+            margin: 0;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size:
+                clamp(70px, 10vw, 125px);
+
+            line-height: .86;
+
+            letter-spacing: -6px;
+
+            color: #201b16;
+
+        }
+
+
+        .scripts-description {
+
+            margin-top: 35px;
+
+            max-width: 650px;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 15px;
+
+            line-height: 1.9;
+
+            color: #554635;
+
+        }
+
+
+        /* =========================================
+           ARCHIVE NOTE
+        ========================================== */
+
+        .archive-note {
+
+            align-self: end;
+
+            padding-left: 25px;
+
+            border-left:
+                1px solid
+                rgba(124,41,33,.45);
+
+        }
+
+
+        .archive-note-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .archive-note p {
+
+            margin: 0;
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 25px;
+
+            line-height: 1.25;
+
+            color: #4e4030;
+
+        }
+
+
+        /* =========================================
+           CATALOGUE HEADER
+        ========================================== */
+
+        .catalogue {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                55px 90px 90px;
+
+        }
+
+
+        .catalogue-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .catalogue-title {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .catalogue-count {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #80694c;
+
+        }
+
+
+        .catalogue-rule {
+
+            height: 1px;
+
+            background:
+                rgba(70,45,20,.4);
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =========================================
+           SCRIPT ITEM
+        ========================================== */
+
+        .script-entry {
+
+            display: grid;
+
+            grid-template-columns:
+                75px 1fr 150px;
+
+            gap: 30px;
+
+            align-items: center;
+
+            min-height: 220px;
+
+            padding:
+                35px 15px;
+
+            border-bottom:
+                1px solid
+                rgba(70,45,20,.28);
+
+            color: #201b16;
+
+            text-decoration: none;
+
+            position: relative;
+
+            transition:
+                padding .4s ease,
+                background .4s ease;
+
+        }
+
+
+        .script-entry:hover {
+
+            padding-left: 30px;
+
+            padding-right: 30px;
+
+            background:
+                rgba(124,41,33,.055);
+
+        }
+
+
+        /* =========================================
+           NUMBER
+        ========================================== */
+
+        .script-index {
+
+            align-self: start;
+
+            padding-top: 5px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            color: #8f3328;
+
+        }
+
+
+        /* =========================================
+           MAIN INFO
+        ========================================== */
+
+        .script-info {
+
+            position: relative;
+
+        }
+
+
+        .script-small-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .script-name {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 34px;
+
+            line-height: 1.1;
+
+            font-weight: 700;
+
+            color: #201b16;
+
+        }
+
+
+        .script-name span {
+
+            color: #8f3328;
+
+        }
+
+
+        .script-subtitle {
+
+            margin-top: 9px;
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 24px;
+
+            color: #765b3e;
+
+        }
+
+
+        .script-description {
+
+            max-width: 650px;
+
+            margin-top: 22px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+
+            color: #665641;
+
+        }
+
+
+        /* =========================================
+           METADATA
+        ========================================== */
+
+        .script-meta {
+
+            align-self: start;
+
+            text-align: right;
+
+            padding-top: 5px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            line-height: 1.8;
+
+            letter-spacing: 1px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .script-meta strong {
+
+            display: block;
+
+            color: #4c3d2d;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .script-arrow {
+
+            display: inline-block;
+
+            margin-top: 18px;
+
+            font-size: 18px;
+
+            color: #8f3328;
+
+            transition:
+                transform .35s ease;
+
+        }
+
+
+        .script-entry:hover .script-arrow {
+
+            transform:
+                translateX(8px);
+
+        }
+
+
+        /* =========================================
+           BOTTOM NOTE
+        ========================================== */
+
+        .scripts-footer {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin:
+                0 90px;
+
+            padding:
+                25px 0;
+
+            border-top:
+                1px dashed
+                rgba(70,45,20,.35);
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .scripts-footer-mark {
+
+            color: #8f3328;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media(max-width: 750px) {
+
+            .scripts-page {
+
+                padding:
+                    0 10px 50px;
+
+            }
+
+
+            .scripts-paper {
+
+                min-height: 100vh;
+
+            }
+
+
+            .scripts-header {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .scripts-header-right {
+
+                display: none;
+
+            }
+
+
+            .scripts-intro {
+
+                padding:
+                    60px 25px 50px;
+
+                display: block;
+
+            }
+
+
+            .scripts-intro h1 {
+
+                font-size: 70px;
+
+                letter-spacing: -4px;
+
+            }
+
+
+            .scripts-description {
+
+                font-size: 14px;
+
+            }
+
+
+            .archive-note {
+
+                margin-top: 45px;
+
+            }
+
+
+            .catalogue {
+
+                padding:
+                    45px 25px 70px;
+
+            }
+
+
+            .script-entry {
+
+                grid-template-columns:
+                    45px 1fr;
+
+                gap: 15px;
+
+                min-height: auto;
+
+                padding:
+                    30px 5px;
+
+            }
+
+
+            .script-entry:hover {
+
+                padding-left: 10px;
+
+                padding-right: 10px;
+
+            }
+
+
+            .script-name {
+
+                font-size: 27px;
+
+            }
+
+
+            .script-description {
+
+                font-size: 10px;
+
+            }
+
+
+            .script-meta {
+
+                grid-column: 2;
+
+                text-align: left;
+
+                padding-top: 0;
+
+            }
+
+
+            .script-arrow {
+
+                margin-left: 8px;
+
+                margin-top: 0;
+
+            }
+
+
+            .scripts-footer {
+
+                margin:
+                    0 25px;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+        }
+/* =========================================
+   UNIVERSAL ARCHIVE HEADER
+========================================= */
+
+.archive-header {
+
+    padding: 35px 55px;
+
+    border-bottom:
+        1px dashed
+        rgba(60, 40, 20, .4);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.archive-back {
+
+    color: #7c2921;
+
+    text-decoration: none;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+}
+
+
+.archive-back:hover {
+
+    opacity: .7;
+
+    transform:
+        translateX(-3px);
+
+}
+
+
+.archive-header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #80694c;
+
+}
+
+
+.archive-stamp {
+
+    color: #8f3328;
+
+    letter-spacing: 2px;
+
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+<main class="scripts-page">
+
+
+    <section class="scripts-paper">
+
+
+        <!-- =====================================
+     HEADER
+====================================== -->
+
+<header class="archive-header">
+
+    <a
+        href="index.html"
+        class="archive-back"
+    >
+        ← Back to the desk
+    </a>
+
+    <div class="archive-header-right">
+
+        <span>
+            The Writing Desk
+        </span>
+
+        <span class="archive-stamp">
+            SK
+        </span>
+
+    </div>
+
+</header>
+
+
+
+        <!-- =====================================
+             INTRO
+        ====================================== -->
+
+        <section class="scripts-intro">
+
+
+            <div>
+
+                <div class="scripts-label">
+                    Screenplays & Scripts
+                </div>
+
+
+                <h1>
+                    Scripts
+                </h1>
+
+
+                <p class="scripts-description">
+                    Stories written for the screen —
+                    fragments of people, places,
+                    routines and moments waiting
+                    to become moving images.
+                </p>
+
+            </div>
+
+
+            <aside class="archive-note">
+
+                <div class="archive-note-label">
+                    From the desk
+                </div>
+
+                <p>
+                    Some stories are meant
+                    to be read.
+
+                    Others are meant
+                    to be seen.
+                </p>
+
+            </aside>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             CATALOGUE
+        ====================================== -->
+
+        <section class="catalogue">
+
+
+            <div class="catalogue-header">
+
+                <div class="catalogue-title">
+                    The Script Archive
+                </div>
+
+
+                <div class="catalogue-count">
+                    01 / 01
+                </div>
+
+            </div>
+
+
+            <div class="catalogue-rule"></div>
+
+
+
+            <!-- =================================
+                 ROZMARRA
+            ================================== -->
+
+            <a
+                href="script-01.html"
+                class="script-entry"
+            >
+
+
+                <div class="script-index">
+                    01
+                </div>
+
+
+                <div class="script-info">
+
+
+                    <div class="script-small-label">
+                        Short Film · 4:3
+                    </div>
+
+
+                    <div class="script-name">
+                        ROZMARRA
+                    </div>
+
+
+                    <div class="script-subtitle">
+                        a mundane routine
+                    </div>
+
+
+                    <div class="script-description">
+
+                        A homeless loner secretly lives
+                        inside empty homes, moving from
+                        one to another until his routine
+                        is shattered when the real owners
+                        return unexpectedly.
+
+                    </div>
+
+                </div>
+
+
+                <div class="script-meta">
+
+                    <strong>
+                        Film Script
+                    </strong>
+
+                    Written by Suri
+
+                    <br>
+
+                    Oct 14, 2025
+
+                    <br>
+
+                    <span class="script-arrow">
+                        →
+                    </span>
+
+                </div>
+
+
+            </a>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="scripts-footer">
+
+
+            <span>
+                The Writing Desk · Scripts
+            </span>
+
+
+            <span class="scripts-footer-mark">
+                01 work archived
+            </span>
+
+
+        </footer>
+
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>

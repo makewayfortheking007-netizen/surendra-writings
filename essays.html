@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Essays — Surendra Kumar</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           ESSAYS PAGE
+        ========================================== */
+
+        .essays-page {
+
+            min-height: 100vh;
+
+            padding:
+                25px 25px 100px;
+
+        }
+
+
+        .essays-paper {
+
+            max-width: 1180px;
+
+            min-height:
+                calc(100vh - 50px);
+
+            margin: 0 auto;
+
+            position: relative;
+
+            background:
+
+                radial-gradient(
+                    ellipse at 15% 10%,
+                    rgba(255,255,255,.32),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    ellipse at 85% 85%,
+                    rgba(100,60,20,.08),
+                    transparent 40%
+                ),
+
+                #ead9b8;
+
+            border:
+                1px solid
+                rgba(70,45,20,.38);
+
+            box-shadow:
+                0 25px 70px
+                rgba(45,30,15,.20);
+
+            overflow: hidden;
+
+        }
+
+
+        /* =========================================
+           PAPER TEXTURE
+        ========================================== */
+
+        .essays-paper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .20;
+
+            background-image:
+
+                repeating-radial-gradient(
+                    circle at 0 0,
+
+                    rgba(60,40,20,.15) 0,
+
+                    rgba(60,40,20,.15) 1px,
+
+                    transparent 1px,
+
+                    transparent 4px
+                );
+
+            mix-blend-mode: multiply;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================== */
+
+        .essays-header {
+
+            position: relative;
+
+            z-index: 2;
+
+            min-height: 75px;
+
+            padding:
+                0 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom:
+                1px dashed
+                rgba(70,45,20,.35);
+
+        }
+
+
+        .essays-back {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            color: #7c2921;
+
+            text-decoration: none;
+
+        }
+
+
+        .essays-back:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        .essays-header-right {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================== */
+
+        .essays-intro {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                85px 90px 70px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 280px;
+
+            gap: 80px;
+
+            border-bottom:
+                1px solid
+                rgba(70,45,20,.32);
+
+        }
+
+
+        .essays-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .essays-intro h1 {
+
+            margin: 0;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size:
+                clamp(70px, 10vw, 125px);
+
+            line-height: .86;
+
+            letter-spacing: -6px;
+
+            color: #201b16;
+
+        }
+
+
+        .essays-description {
+
+            margin-top: 35px;
+
+            max-width: 650px;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 15px;
+
+            line-height: 1.9;
+
+            color: #554635;
+
+        }
+
+
+        /* =========================================
+           SIDE NOTE
+        ========================================== */
+
+        .essays-note {
+
+            align-self: end;
+
+            padding-left: 25px;
+
+            border-left:
+                1px solid
+                rgba(124,41,33,.45);
+
+        }
+
+
+        .essays-note-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .essays-note p {
+
+            margin: 0;
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 25px;
+
+            line-height: 1.25;
+
+            color: #4e4030;
+
+        }
+
+
+        /* =========================================
+           ESSAY ARCHIVE
+        ========================================== */
+
+        .essays-catalogue {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                55px 90px 90px;
+
+        }
+
+
+        .essays-catalogue-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .essays-catalogue-title {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .essays-count {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #80694c;
+
+        }
+
+
+        .essays-rule {
+
+            height: 1px;
+
+            background:
+                rgba(70,45,20,.4);
+
+        }
+
+
+        /* =========================================
+           ESSAY ENTRY
+        ========================================== */
+
+        .essay-entry {
+
+            display: grid;
+
+            grid-template-columns:
+                75px 1fr 150px;
+
+            gap: 30px;
+
+            align-items: center;
+
+            min-height: 220px;
+
+            padding:
+                35px 15px;
+
+            border-bottom:
+                1px solid
+                rgba(70,45,20,.28);
+
+            color: #201b16;
+
+            text-decoration: none;
+
+            transition:
+                padding .4s ease,
+                background .4s ease;
+
+        }
+
+
+        .essay-entry:hover {
+
+            padding-left: 30px;
+
+            padding-right: 30px;
+
+            background:
+                rgba(124,41,33,.055);
+
+        }
+
+
+        /* =========================================
+           INDEX
+        ========================================== */
+
+        .essay-index {
+
+            align-self: start;
+
+            padding-top: 5px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 12px;
+
+            color: #8f3328;
+
+        }
+
+
+        /* =========================================
+           ESSAY INFORMATION
+        ========================================== */
+
+        .essay-small-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .essay-name {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 34px;
+
+            line-height: 1.1;
+
+            font-weight: 700;
+
+            color: #201b16;
+
+        }
+
+
+        .essay-subtitle {
+
+            margin-top: 9px;
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 24px;
+
+            color: #765b3e;
+
+        }
+
+
+        .essay-description {
+
+            max-width: 650px;
+
+            margin-top: 22px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+
+            color: #665641;
+
+        }
+
+
+        /* =========================================
+           STATUS
+        ========================================== */
+
+        .essay-status {
+
+            align-self: start;
+
+            text-align: right;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            line-height: 1.8;
+
+            letter-spacing: 1px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .essay-status strong {
+
+            display: block;
+
+            color: #4c3d2d;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        /* =========================================
+           WIP
+        ========================================== */
+
+        .essay-wip {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #5d6848;
+
+        }
+
+
+        .essay-wip-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            display: inline-block;
+
+            border-radius: 50%;
+
+            background:
+                #687b45;
+
+            animation:
+                essay-wip-pulse 2s ease-in-out infinite;
+
+        }
+
+
+        @keyframes essay-wip-pulse {
+
+            0%,
+            100% {
+
+                opacity: .45;
+
+                box-shadow:
+                    0 0 0 0
+                    rgba(104,123,69,.35);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                box-shadow:
+                    0 0 0 5px
+                    rgba(104,123,69,0);
+
+            }
+
+        }
+
+
+        /* =========================================
+           ARROW
+        ========================================== */
+
+        .essay-arrow {
+
+            display: inline-block;
+
+            margin-top: 18px;
+
+            font-size: 18px;
+
+            color: #8f3328;
+
+            transition:
+                transform .35s ease;
+
+        }
+
+
+        .essay-entry:hover .essay-arrow {
+
+            transform:
+                translateX(8px);
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================== */
+
+        .essays-footer {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin:
+                0 90px;
+
+            padding:
+                25px 0;
+
+            border-top:
+                1px dashed
+                rgba(70,45,20,.35);
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .essays-footer-mark {
+
+            color: #8f3328;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media(max-width:750px) {
+
+            .essays-page {
+
+                padding:
+                    0 10px 50px;
+
+            }
+
+
+            .essays-paper {
+
+                min-height: 100vh;
+
+            }
+
+
+            .essays-header {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .essays-header-right {
+
+                display: none;
+
+            }
+
+
+            .essays-intro {
+
+                padding:
+                    60px 25px 50px;
+
+                display: block;
+
+            }
+
+
+            .essays-intro h1 {
+
+                font-size: 70px;
+
+                letter-spacing: -4px;
+
+            }
+
+
+            .essays-description {
+
+                font-size: 14px;
+
+            }
+
+
+            .essays-note {
+
+                margin-top: 45px;
+
+            }
+
+
+            .essays-catalogue {
+
+                padding:
+                    45px 25px 70px;
+
+            }
+
+
+            .essay-entry {
+
+                grid-template-columns:
+                    45px 1fr;
+
+                gap: 15px;
+
+                min-height: auto;
+
+                padding:
+                    30px 5px;
+
+            }
+
+
+            .essay-entry:hover {
+
+                padding-left: 10px;
+
+                padding-right: 10px;
+
+            }
+
+
+            .essay-name {
+
+                font-size: 27px;
+
+            }
+
+
+            .essay-description {
+
+                font-size: 10px;
+
+            }
+
+
+            .essay-status {
+
+                grid-column: 2;
+
+                text-align: left;
+
+            }
+
+
+            .essay-arrow {
+
+                margin-left: 8px;
+
+                margin-top: 0;
+
+            }
+
+
+            .essays-footer {
+
+                margin:
+                    0 25px;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+        }
+/* =========================================
+   UNIVERSAL ARCHIVE HEADER
+========================================= */
+
+.archive-header {
+
+    padding: 35px 55px;
+
+    border-bottom:
+        1px dashed
+        rgba(60, 40, 20, .4);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.archive-back {
+
+    color: #7c2921;
+
+    text-decoration: none;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+}
+
+
+.archive-back:hover {
+
+    opacity: .7;
+
+    transform:
+        translateX(-3px);
+
+}
+
+
+.archive-header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #80694c;
+
+}
+
+
+.archive-stamp {
+
+    color: #8f3328;
+
+    letter-spacing: 2px;
+
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+<main class="essays-page">
+
+
+    <section class="essays-paper">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <!-- =====================================
+     HEADER
+====================================== -->
+
+<header class="archive-header">
+
+    <a
+        href="index.html"
+        class="archive-back"
+    >
+        ← Back to the desk
+    </a>
+
+    <div class="archive-header-right">
+
+        <span>
+            The Writing Desk
+        </span>
+
+        <span class="archive-stamp">
+            SK
+        </span>
+
+    </div>
+
+</header>
+
+
+
+        <!-- =====================================
+             INTRO
+        ====================================== -->
+
+        <section class="essays-intro">
+
+
+            <div>
+
+                <div class="essays-label">
+                    Reflections & Ideas
+                </div>
+
+
+                <h1>
+                    Essays
+                </h1>
+
+
+                <p class="essays-description">
+
+                    Thoughts, observations and questions
+                    written down before they disappear —
+                    attempts to make sense of things,
+                    people and the world around them.
+
+                </p>
+
+            </div>
+
+
+            <aside class="essays-note">
+
+                <div class="essays-note-label">
+                    From the desk
+                </div>
+
+
+                <p>
+
+                    Some thoughts arrive
+                    quietly.
+
+                    Some refuse to leave.
+
+                </p>
+
+            </aside>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             ARCHIVE
+        ====================================== -->
+
+        <section class="essays-catalogue">
+
+
+            <div class="essays-catalogue-header">
+
+
+                <div class="essays-catalogue-title">
+                    The Essay Archive
+                </div>
+
+
+                <div class="essays-count">
+                    01 / 01
+                </div>
+
+
+            </div>
+
+
+            <div class="essays-rule"></div>
+
+
+
+            <!-- =================================
+                 ESSAY 01 — ESTIMATE
+            ================================== -->
+
+            <a
+                href="essay-01.html"
+                class="essay-entry"
+            >
+
+
+                <div class="essay-index">
+                    01
+                </div>
+
+
+                <div>
+
+
+                    <div class="essay-small-label">
+                        Essay · Work in Progress
+                    </div>
+
+
+                    <div class="essay-name">
+                        REGRETS
+                    </div>
+
+
+                    <div class="essay-subtitle">
+                        On attention, the mind and the
+                        things we allow to consume it.
+                    </div>
+
+
+                    <div class="essay-description">
+
+                        A reflection on the constant urge
+                        to consume information and
+                        entertainment, and the possibility
+                        of reclaiming attention by stepping
+                        away from the noise.
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="essay-status">
+
+
+                    <strong>
+                        Essay
+                    </strong>
+
+
+                    <span class="essay-wip">
+
+                        <span class="essay-wip-dot"></span>
+
+                        Work in progress
+
+                    </span>
+
+
+                    <br>
+
+                    Updated later
+
+
+                    <br>
+
+
+                    <span class="essay-arrow">
+                        →
+                    </span>
+
+
+                </div>
+
+
+            </a>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="essays-footer">
+
+
+            <span>
+                The Writing Desk · Essays
+            </span>
+
+
+            <span class="essays-footer-mark">
+                01 work archived
+            </span>
+
+
+        </footer>
+
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>

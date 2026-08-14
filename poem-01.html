@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Aakhir Tu Darta Hai Kyun? — Surendra Kumar</title>
+
+
+    <!-- Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background: #d8c39d;
+
+            color: #211a14;
+
+            padding: 20px;
+
+        }
+
+
+        /* =====================================
+           PAPER
+        ===================================== */
+
+        .paper {
+
+            position: relative;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            min-height: calc(100vh - 40px);
+
+            background:
+
+                radial-gradient(
+                    ellipse at 20% 20%,
+                    rgba(255,255,255,.4),
+                    transparent 40%
+                ),
+
+                radial-gradient(
+                    ellipse at 80% 80%,
+                    rgba(100,60,20,.08),
+                    transparent 45%
+                ),
+
+                #ead9b8;
+
+            border:
+                1px solid
+                rgba(60,40,20,.4);
+
+            box-shadow:
+                0 20px 60px
+                rgba(40,25,10,.25);
+
+            overflow: hidden;
+
+        }
+
+
+        /* =====================================
+   PAPER TEXTURE
+===================================== */
+
+.paper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .18;
+
+    background-image:
+
+        /* Fine paper grain */
+
+        repeating-radial-gradient(
+            circle at 0 0,
+            rgba(70, 45, 20, .12) 0,
+            rgba(70, 45, 20, .12) .6px,
+            transparent .8px,
+            transparent 3px
+        ),
+
+        /* Larger paper variation */
+
+        radial-gradient(
+            ellipse at 20% 15%,
+            rgba(255,255,255,.35),
+            transparent 45%
+        ),
+
+        radial-gradient(
+            ellipse at 80% 85%,
+            rgba(90,60,30,.08),
+            transparent 50%
+        );
+
+    background-size:
+        4px 4px,
+        100% 100%,
+        100% 100%;
+
+    mix-blend-mode: multiply;
+
+} 
+.paper::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .08;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(80,50,20,.08) 50%,
+            transparent 100%
+        );
+
+    background-size:
+        7px 100%;
+
+    mix-blend-mode: multiply;
+
+}
+.paper-inner-border {
+
+    position: absolute;
+
+    inset: 14px;
+
+    border:
+        1px solid
+        rgba(60,40,20,.16);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+        /* =====================================
+           HEADER
+        ===================================== */
+
+        header {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding: 30px 55px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom:
+                1px dashed
+                rgba(60,40,20,.35);
+
+        }
+
+
+        .back {
+
+            color: #7c2921;
+
+            text-decoration: none;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+
+        .archive-label {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: #80694c;
+
+        }
+
+
+        /* =====================================
+           POEM HEADER
+        ===================================== */
+
+        .poem-header {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                85px 90px 55px;
+
+        }
+
+
+        .category {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        h1 {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size:
+                clamp(48px, 7vw, 82px);
+
+            line-height: 1.05;
+
+            letter-spacing: -3px;
+
+            max-width: 850px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .date {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 11px;
+
+            color: #80694c;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .header-line {
+
+            width: 65px;
+
+            height: 3px;
+
+            background: #8f3328;
+
+            margin-top: 30px;
+
+        }
+
+
+        /* =====================================
+           POEM
+        ===================================== */
+
+        .poem-container {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                25px 90px 100px;
+
+        }
+
+
+        .poem {
+
+            max-width: 720px;
+
+            margin: auto;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 18px;
+
+            line-height: 2.05;
+
+            color: #292018;
+
+        }
+
+
+        .stanza {
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .poem-line {
+
+            display: block;
+
+        }
+
+
+        /* EMPHASIS */
+
+        .poem-line:last-child {
+
+            color: #8f3328;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================
+           SIGNATURE
+        ===================================== */
+
+        .signature {
+
+            max-width: 720px;
+
+            margin:
+                30px auto 0;
+
+            padding-top: 35px;
+
+            border-top:
+                1px dashed
+                rgba(60,40,20,.35);
+
+            text-align: right;
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 28px;
+
+            color: #7c2921;
+
+        }
+
+
+        /* =====================================
+           BOTTOM NAVIGATION
+        ===================================== */
+
+        .poem-navigation {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin:
+                0 90px;
+
+            padding:
+                30px 0;
+
+            border-top:
+                1px dashed
+                rgba(60,40,20,.35);
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+        }
+
+
+        .nav-link {
+
+            color: #7c2921;
+
+            text-decoration: none;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            transition:
+                transform .3s ease;
+
+        }
+
+
+        .nav-link:hover {
+
+            transform:
+                translateX(5px);
+
+        }
+
+
+        .nav-link.previous:hover {
+
+            transform:
+                translateX(-5px);
+
+        }
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media(max-width:700px) {
+
+            body {
+                padding: 0;
+            }
+
+
+            .paper {
+                min-height: 100vh;
+            }
+
+
+            header {
+
+                padding:
+                    25px;
+
+            }
+
+
+            .archive-label {
+                display: none;
+            }
+
+
+            .poem-header {
+
+                padding:
+                    60px 30px 40px;
+
+            }
+
+
+            h1 {
+
+                font-size: 48px;
+
+                letter-spacing: -2px;
+
+            }
+
+
+            .poem-container {
+
+                padding:
+                    20px 30px 70px;
+
+            }
+
+
+            .poem {
+
+                font-size: 16px;
+
+                line-height: 1.9;
+
+            }
+
+
+            .stanza {
+
+                margin-bottom: 35px;
+
+            }
+
+
+            .poem-navigation {
+
+                margin:
+                    0 30px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="reading-progress">
+    <div class="reading-progress-bar"></div>
+</div>
+<div class="paper">
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <a
+            href="poetry.html"
+            class="back"
+        >
+            ← Poetry Archive
+        </a>
+
+
+        <div class="archive-label">
+            The Writing Desk · 001
+        </div>
+
+    </header>
+
+
+
+    <!-- POEM TITLE -->
+
+    <section class="poem-header">
+
+        <div class="category">
+            Poetry
+        </div>
+
+
+        <h1>
+            Aakhir Tu Darta Hai Kyun?
+        </h1>
+
+
+        <div class="date">
+            05 · 06 · 2024
+        </div>
+
+
+        <div class="header-line"></div>
+
+    </section>
+
+
+
+    <!-- POEM -->
+
+    <main class="poem-container">
+
+
+        <article class="poem">
+
+
+            <div class="stanza">
+
+                <span class="poem-line">
+                    Aakhir tu darta hai kyun ?
+                </span>
+
+                <span class="poem-line">
+                    Log kya soche usse farak padta hai kyun!
+                </span>
+
+                <span class="poem-line">
+                    Haar gaya tu race apni toh khudse itni nafrat krta hai kyun
+                </span>
+
+                <span class="poem-line">
+                    Ye bhaag daud antim nhi , tera harna hamesha Tay nhi
+                </span>
+
+                <span class="poem-line">
+                    Toh fir aakhir darta hai kyun ?
+                </span>
+
+            </div>
+
+
+
+            <div class="stanza">
+
+                <span class="poem-line">
+                    Sapne toh khoob sanjhoye tune, khwaab deke hai duniya Jahan ke tune.
+                </span>
+
+                <span class="poem-line">
+                    Toh duniya ke inn taano se Mann vichlit hota hai kyun ?
+                </span>
+
+                <span class="poem-line">
+                    Aakhir Harne se itna darta hai kyun ?
+                </span>
+
+            </div>
+
+
+
+            <div class="stanza">
+
+                <span class="poem-line">
+                    Keech de apni iss train ki chain ko tu,
+                </span>
+
+                <span class="poem-line">
+                    Chood iss unchahe Safar ko tu,badh chal apne sapno ki aur tu paale apna chayan(peace) firse .
+                </span>
+
+                <span class="poem-line">
+                    Safar ye naya hai mukaam ye unsunna h, Dil mei bhar ke sapno ki saansein chal pad tu ,
+                </span>
+
+                <span class="poem-line">
+                    Duniya ki kahaniyon se kyun sehemta hai tu
+                </span>
+
+                <span class="poem-line">
+                    Aakhir tu darta hai kyun?
+                </span>
+
+            </div>
+
+
+
+            <div class="stanza">
+
+                <span class="poem-line">
+                    Chal pad apne raaste par,
+                </span>
+
+                <span class="poem-line">
+                    tu gir padega tu lad padega tu jhuk padega
+                </span>
+
+                <span class="poem-line">
+                    Par kabhi na marr sakega tera ye sapna.
+                </span>
+
+                <span class="poem-line">
+                    Aakhir Mann maar kar jeeta hai tu kyun?
+                </span>
+
+            </div>
+
+
+        </article>
+
+
+
+        <div class="signature">
+            — Surendra Kumar
+        </div>
+
+
+    </main>
+
+
+
+    <!-- NAVIGATION -->
+
+    <div class="poem-navigation">
+
+        <a
+            href="poetry.html"
+            class="nav-link previous"
+        >
+            ← All Poetry
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-link"
+        >
+            Next Poem →
+        </a>
+
+    </div>
+
+
+</div>
+
+<script>
+
+window.addEventListener("scroll", function () {
+
+    const progressBar =
+        document.querySelector(".reading-progress-bar");
+
+    const scrollTop =
+        window.scrollY;
+
+    const documentHeight =
+        document.documentElement.scrollHeight
+        - window.innerHeight;
+
+    const progress =
+        (scrollTop / documentHeight) * 100;
+
+    progressBar.style.width =
+        progress + "%";
+
+});
+
+</script>
+</body>
+
+</html>

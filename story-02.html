@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Untitled — Surendra Kumar</title>
+
+
+    <!-- =========================================
+         FONTS
+    ========================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet">
+
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           STORY PAGE
+        ========================================== */
+
+        .story-page {
+
+            min-height: 100vh;
+
+            padding:
+                30px 25px 100px;
+
+            position: relative;
+
+        }
+
+
+        /* =========================================
+           PAPER
+        ========================================== */
+
+        .story-paper {
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            position: relative;
+
+            background:
+
+                radial-gradient(
+                    ellipse at 15% 10%,
+                    rgba(255,255,255,.34),
+                    transparent 38%
+                ),
+
+                radial-gradient(
+                    ellipse at 85% 90%,
+                    rgba(100,60,20,.07),
+                    transparent 42%
+                ),
+
+                #eee0c3;
+
+            border:
+                1px solid
+                rgba(70,45,20,.35);
+
+            box-shadow:
+                0 25px 70px
+                rgba(45,30,15,.20);
+
+            overflow: hidden;
+
+        }
+
+
+        /* =========================================
+           PAPER TEXTURE
+        ========================================== */
+
+        .story-paper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .17;
+
+            background-image:
+
+                repeating-radial-gradient(
+                    circle at 0 0,
+
+                    rgba(60,40,20,.15) 0,
+
+                    rgba(60,40,20,.15) 1px,
+
+                    transparent 1px,
+
+                    transparent 4px
+                );
+
+            mix-blend-mode: multiply;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================== */
+
+        .story-header {
+
+            position: relative;
+
+            z-index: 2;
+
+            min-height: 75px;
+
+            padding:
+                0 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom:
+                1px dashed
+                rgba(70,45,20,.35);
+
+        }
+
+
+        .story-back {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            color: #7c2921;
+
+            text-decoration: none;
+
+        }
+
+
+        .story-back:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        .story-header-right {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================================
+           TITLE
+        ========================================== */
+
+        .story-title-section {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                105px 100px 90px;
+
+            text-align: center;
+
+            border-bottom:
+                1px solid
+                rgba(70,45,20,.30);
+
+        }
+
+
+        .story-category {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .story-title {
+
+            margin: 0;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size:
+                clamp(55px, 9vw, 100px);
+
+            line-height: .9;
+
+            letter-spacing: -5px;
+
+            color: #201b16;
+
+        }
+
+
+        .story-ornament {
+
+            width: 70px;
+
+            height: 1px;
+
+            background:
+                #8f3328;
+
+            margin:
+                35px auto;
+
+        }
+
+
+        .story-subtitle {
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 27px;
+
+            color: #765b3e;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* =========================================
+           WIP STATUS
+        ========================================== */
+
+        .story-wip {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #5d6848;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .story-wip-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                #687b45;
+
+            display: inline-block;
+
+            animation:
+                story-wip-pulse 2s ease-in-out infinite;
+
+        }
+
+
+        @keyframes story-wip-pulse {
+
+            0%,
+            100% {
+
+                opacity: .45;
+
+                box-shadow:
+                    0 0 0 0
+                    rgba(104,123,69,.30);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                box-shadow:
+                    0 0 0 5px
+                    rgba(104,123,69,0);
+
+            }
+
+        }
+
+
+        /* =========================================
+           READING AREA
+        ========================================== */
+
+        .story-reading {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            padding:
+                90px 40px 110px;
+
+        }
+
+
+        /* =========================================
+           STORY BODY
+        ========================================== */
+
+        .story-body {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 17px;
+
+            line-height: 2;
+
+            color: #30271f;
+
+        }
+
+
+        .story-body p {
+
+            margin:
+                0 0 28px;
+
+        }
+
+
+        /* FIRST PARAGRAPH */
+
+        .story-body p:first-child::first-letter {
+
+            float: left;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 68px;
+
+            line-height: .78;
+
+            padding-right: 9px;
+
+            padding-top: 7px;
+
+            color: #8f3328;
+
+        }
+
+
+        /* DIALOGUE */
+
+        .story-body p.dialogue {
+
+            margin-left: 25px;
+
+        }
+
+
+        /* =========================================
+           CONTINUATION
+        ========================================== */
+
+        .story-continuation {
+
+            margin-top: 70px;
+
+            padding-top: 30px;
+
+            border-top:
+                1px dashed
+                rgba(70,45,20,.35);
+
+            text-align: center;
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 28px;
+
+            color: #765b3e;
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================== */
+
+        .story-footer {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin:
+                0 100px;
+
+            padding:
+                25px 0;
+
+            border-top:
+                1px dashed
+                rgba(70,45,20,.35);
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .story-footer-status {
+
+            color: #687b45;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media(max-width:700px) {
+
+            .story-page {
+
+                padding:
+                    0 10px 50px;
+
+            }
+
+
+            .story-paper {
+
+                min-height: 100vh;
+
+            }
+
+
+            .story-header {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .story-header-right {
+
+                display: none;
+
+            }
+
+
+            .story-title-section {
+
+                padding:
+                    75px 25px 65px;
+
+            }
+
+
+            .story-title {
+
+                font-size: 58px;
+
+                letter-spacing: -3px;
+
+            }
+
+
+            .story-subtitle {
+
+                font-size: 24px;
+
+            }
+
+
+            .story-reading {
+
+                padding:
+                    60px 25px 80px;
+
+            }
+
+
+            .story-body {
+
+                font-size: 16px;
+
+                line-height: 1.9;
+
+            }
+
+
+            .story-body p.dialogue {
+
+                margin-left: 12px;
+
+            }
+
+
+            .story-footer {
+
+                margin:
+                    0 25px;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<main class="story-page">
+
+
+    <section class="story-paper">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="story-header">
+
+            <a
+                href="stories.html"
+                class="story-back"
+            >
+                ← Back to stories
+            </a>
+
+
+            <div class="story-header-right">
+                The Writing Desk · Fiction
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             TITLE
+        ====================================== -->
+
+        <section class="story-title-section">
+
+
+            <div class="story-category">
+                Short Story
+            </div>
+
+
+            <h1 class="story-title">
+                UNTITLED
+            </h1>
+
+
+            <div class="story-ornament"></div>
+
+
+            <div class="story-subtitle">
+                A work in progress
+            </div>
+
+
+            <div class="story-wip">
+
+                <span class="story-wip-dot"></span>
+
+                Work in progress
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             STORY
+        ====================================== -->
+
+        <article class="story-reading">
+
+
+            <div class="story-body">
+
+
+                <p>
+                    The music was so loud that even after
+                    Arjun had come out onto the balcony, he
+                    could hear the loud thumping music. As
+                    the breeze picked up, the volume subsided.
+                    He was sitting there alone with a bottle
+                    of water, sipping silently. Arjun didn't
+                    enjoy these parties at all: loud music,
+                    people drinking more than they could
+                    handle. He didn't judge them, but he
+                    didn't like it either.
+                </p>
+
+
+                <p>
+                    His boss hosted the party, and Arjun had
+                    been expected to attend. So here he was,
+                    sitting alone on the penthouse balcony
+                    enjoying a brief respite from all the
+                    noise.
+                </p>
+
+
+                <p>
+                    The sound of a sliding door broke the
+                    silence. He turned back and saw a girl
+                    walk out with headphones around her neck
+                    and a can of beer in her hand. Arjun
+                    wanted to ignore her, but he couldn't.
+                    The dim light spilling across her face
+                    revealed her striking features: beady
+                    eyes, a perfectly shaped nose that looked
+                    as though Michelangelo himself had
+                    sculpted it, and a toned physique that
+                    hinted at countless hours spent in the gym.
+                    The tiny nose ring suited her perfectly,
+                    making her more captivating.
+                </p>
+
+
+                <p>
+                    He found himself staring at her and
+                    immediately looked the other way.
+                </p>
+
+
+                <p>
+                    She closed the door behind her and stood
+                    a few feet away from him. Neither of them
+                    said a word. The silence lingered for a
+                    few seconds before the hiss of the can
+                    opening gently broke it.
+                </p>
+
+
+                <p>
+                    She stood in silence, enjoying the pleasant
+                    breeze, when she finally spoke.
+                </p>
+
+
+                <p class="dialogue">
+                    "Only a psychopath would choose plain
+                    water at a party like this," she remarked
+                    nonchalantly.
+                </p>
+
+
+                <p>
+                    Arjun chuckled. He looked at the bottle,
+                    then at her, and replied,
+                </p>
+
+
+                <p class="dialogue">
+                    "Someone has to remember what happens
+                    today."
+                </p>
+
+
+                <p>
+                    She took a sip from the can and said,
+                    in a sarcastic tone,
+                </p>
+
+
+                <p class="dialogue">
+                    "Oh, you must be so much fun at parties."
+                </p>
+
+
+                <p>
+                    Arjun smirked, raised the bottle slightly,
+                    and said,
+                </p>
+
+
+                <p class="dialogue">
+                    "I've heard better compliments."
+                </p>
+
+
+                <p>
+                    She walked up to him and extended her hand.
+                </p>
+
+
+                <p class="dialogue">
+                    "Hi, I'm Diya. Your DJ for this boring
+                    night."
+                </p>
+
+
+                <p class="dialogue">
+                    “Hi, I am Arjun.”
+                </p>
+
+
+                <p>
+                    They shook hands briefly.
+                </p>
+
+
+                <p>
+                    She set the beer can aside and reached
+                    behind her back and unbuckled her hair.
+                    It fell over her shoulders, the silky
+                    strands started dancing with the breeze
+                    like waves rolling gently onto the shore
+                    again and again.
+                </p>
+
+
+                <p>
+                    For a moment, everything around Arjun
+                    seemed to fade, things slowed down, and
+                    it seemed as if he was in a trance. He
+                    was aware that his gaze was fixated on
+                    her but couldn't stop himself. It caught
+                    him off guard. This didn't happen often.
+                    In fact, he couldn't remember the last
+                    time a woman had held his attention
+                    without much effort.
+                </p>
+
+
+                <p>
+                    Realizing he was staring, he blinked,
+                    cleared his throat, and lowered his gaze
+                    to the floor.
+                </p>
+
+
+                <p class="dialogue">
+                    “So Arjun, why are you up here all alone,
+                    sipping water?” She asked while tying her
+                    hair in a bun and putting that one
+                    stubborn hair strand behind her ear.
+                </p>
+
+
+                <p class="dialogue">
+                    “Uh... no particular reason,” Arjun
+                    replied sheepishly. “I just couldn't
+                    handle it in there the chatter, the loud
+                    music. I needed a breather, so I came up
+                    here.”
+                </p>
+
+
+                <p class="dialogue">
+                    “I see,” Diya said, gazing at the night
+                    sky.
+                </p>
+
+
+                <p>
+                    Arjun studied her for a minute.
+                </p>
+
+
+                <p class="dialogue">
+                    “You look tired”. I thought DJs had
+                    unlimited energy. He paused before
+                    adding, “By the way, your set was really
+                    smooth.”
+                </p>
+
+
+                <p class="dialogue">
+                    “That's generous of you. And thank you.”
+                    She tilted her head. “Though if my set
+                    was that smooth, why are you out here
+                    enjoying the silence?”
+                </p>
+
+
+                <p class="dialogue">
+                    “No, I didn't mean it like that,” Arjun
+                    shook his head “I just–”
+                </p>
+
+
+                <p class="dialogue">
+                    “Relax, Arjun, I am kidding,” She said
+                    with a faint smile.
+                </p>
+
+
+                <p>
+                    “To be honest,” she continued, “I'm up
+                    here for pretty much the same reason. Even
+                    I need to disappear for a few minutes
+                    sometimes. It helps me quiet my mind and
+                    gather my thoughts.”
+                </p>
+
+
+                <p class="dialogue">
+                    “That actually makes sense,” Arjun said,
+                    easing into the chair.
+                </p>
+
+
+                <p class="dialogue">
+                    “Well, I'd better get back. See you inside.”
+                </p>
+
+
+                <p class="dialogue">
+                    Arjun raised his water bottle in salute.
+                </p>
+
+
+                <p class="dialogue">
+                    “Cheers.”
+                </p>
+
+
+                <p>
+                    She smiled and walked inside.
+                </p>
+
+
+                <p>
+                    Arjun sat there in silence, the cool
+                    night breeze brushing against his face.
+                    Somehow, the evening had taken a turn in
+                    ways he couldn't explain. Their
+                    conversation kept replaying in his head
+                    the sound of her voice, the way she
+                    carried herself, the breeze catching her
+                    hair, the faint smile she wore. It had
+                    lasted only a few minutes, yet it felt
+                    like the beginning of something he
+                    couldn't quite fathom. Whatever it was,
+                    he knew one thing he wasn't ready for it
+                    to end.
+                </p>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 CONTINUATION
+            ====================================== -->
+
+            <div class="story-continuation">
+
+                — continued —
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="story-footer">
+
+            <span>
+                The Writing Desk · Stories
+            </span>
+
+
+            <span class="story-footer-status">
+
+                ● Work in progress
+
+            </span>
+
+        </footer>
+
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>

@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Worthy Humans — Surendra Kumar</title>
+
+
+    <!-- =========================================
+         FONTS
+    ========================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet">
+
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           STORY PAGE
+        ========================================== */
+
+        .story-page {
+
+            min-height: 100vh;
+
+            padding:
+                30px 25px 100px;
+
+            position: relative;
+
+        }
+
+
+        /* =========================================
+           PAPER
+        ========================================== */
+
+        .story-paper {
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            position: relative;
+
+            background:
+
+                radial-gradient(
+                    ellipse at 15% 10%,
+                    rgba(255,255,255,.34),
+                    transparent 38%
+                ),
+
+                radial-gradient(
+                    ellipse at 85% 90%,
+                    rgba(100,60,20,.07),
+                    transparent 42%
+                ),
+
+                #eee0c3;
+
+            border:
+                1px solid
+                rgba(70,45,20,.35);
+
+            box-shadow:
+                0 25px 70px
+                rgba(45,30,15,.20);
+
+            overflow: hidden;
+
+        }
+
+
+        /* =========================================
+           PAPER TEXTURE
+        ========================================== */
+
+        .story-paper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .17;
+
+            background-image:
+
+                repeating-radial-gradient(
+                    circle at 0 0,
+
+                    rgba(60,40,20,.15) 0,
+
+                    rgba(60,40,20,.15) 1px,
+
+                    transparent 1px,
+
+                    transparent 4px
+                );
+
+            mix-blend-mode: multiply;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================== */
+
+        .story-header {
+
+            position: relative;
+
+            z-index: 2;
+
+            min-height: 75px;
+
+            padding:
+                0 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom:
+                1px dashed
+                rgba(70,45,20,.35);
+
+        }
+
+
+        .story-back {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            color: #7c2921;
+
+            text-decoration: none;
+
+        }
+
+
+        .story-back:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        .story-header-right {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================================
+           TITLE
+        ========================================== */
+
+        .story-title-section {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                105px 100px 90px;
+
+            text-align: center;
+
+            border-bottom:
+                1px solid
+                rgba(70,45,20,.30);
+
+        }
+
+
+        .story-category {
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            color: #8f3328;
+
+            text-transform: uppercase;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .story-title {
+
+            margin: 0;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size:
+                clamp(55px, 9vw, 100px);
+
+            line-height: .9;
+
+            letter-spacing: -5px;
+
+            color: #201b16;
+
+        }
+
+
+        .story-ornament {
+
+            width: 70px;
+
+            height: 1px;
+
+            background:
+                #8f3328;
+
+            margin:
+                35px auto;
+
+        }
+
+
+        .story-subtitle {
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 27px;
+
+            color: #765b3e;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* =========================================
+           WIP STATUS
+        ========================================== */
+
+        .story-wip {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #5d6848;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .story-wip-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                #687b45;
+
+            display: inline-block;
+
+            animation:
+                story-wip-pulse 2s ease-in-out infinite;
+
+        }
+
+
+        @keyframes story-wip-pulse {
+
+            0%,
+            100% {
+
+                opacity: .45;
+
+                box-shadow:
+                    0 0 0 0
+                    rgba(104,123,69,.30);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                box-shadow:
+                    0 0 0 5px
+                    rgba(104,123,69,0);
+
+            }
+
+        }
+
+
+        /* =========================================
+           READING AREA
+        ========================================== */
+
+        .story-reading {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            padding:
+                90px 40px 110px;
+
+        }
+
+
+        /* =========================================
+           OPENING
+        ========================================== */
+
+        .story-opening {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 18px;
+
+            line-height: 2;
+
+            color: #30271f;
+
+        }
+
+
+        .story-opening p {
+
+            margin:
+                0 0 28px;
+
+        }
+
+
+        .story-opening p:first-child::first-letter {
+
+            float: left;
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 68px;
+
+            line-height: .78;
+
+            padding-right: 9px;
+
+            padding-top: 7px;
+
+            color: #8f3328;
+
+        }
+
+
+        /* =========================================
+           BODY TEXT
+        ========================================== */
+
+        .story-body {
+
+            font-family:
+                "Libre Baskerville",
+                serif;
+
+            font-size: 17px;
+
+            line-height: 2;
+
+            color: #30271f;
+
+        }
+
+
+        .story-body p {
+
+            margin:
+                0 0 28px;
+
+        }
+
+
+        /* =========================================
+           DIALOGUE
+        ========================================== */
+
+        .story-body p.dialogue {
+
+            margin-left: 25px;
+
+        }
+
+
+        /* =========================================
+           ENDING / CONTINUATION
+        ========================================== */
+
+        .story-continuation {
+
+            margin-top: 70px;
+
+            padding-top: 30px;
+
+            border-top:
+                1px dashed
+                rgba(70,45,20,.35);
+
+            text-align: center;
+
+            font-family:
+                "Caveat",
+                cursive;
+
+            font-size: 28px;
+
+            color: #765b3e;
+
+        }
+
+
+        /* =========================================
+           STORY FOOTER
+        ========================================== */
+
+        .story-footer {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin:
+                0 100px;
+
+            padding:
+                25px 0;
+
+            border-top:
+                1px dashed
+                rgba(70,45,20,.35);
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+            color: #80694c;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .story-footer-status {
+
+            color: #687b45;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media(max-width:700px) {
+
+            .story-page {
+
+                padding:
+                    0 10px 50px;
+
+            }
+
+
+            .story-paper {
+
+                min-height: 100vh;
+
+            }
+
+
+            .story-header {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .story-header-right {
+
+                display: none;
+
+            }
+
+
+            .story-title-section {
+
+                padding:
+                    75px 25px 65px;
+
+            }
+
+
+            .story-title {
+
+                font-size: 58px;
+
+                letter-spacing: -3px;
+
+            }
+
+
+            .story-subtitle {
+
+                font-size: 24px;
+
+            }
+
+
+            .story-reading {
+
+                padding:
+                    60px 25px 80px;
+
+            }
+
+
+            .story-opening {
+
+                font-size: 16px;
+
+                line-height: 1.9;
+
+            }
+
+
+            .story-body {
+
+                font-size: 16px;
+
+                line-height: 1.9;
+
+            }
+
+
+            .story-body p.dialogue {
+
+                margin-left: 12px;
+
+            }
+
+
+            .story-footer {
+
+                margin:
+                    0 25px;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<main class="story-page">
+
+
+    <section class="story-paper">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="story-header">
+
+
+            <a
+                href="stories.html"
+                class="story-back"
+            >
+                ← Back to stories
+            </a>
+
+
+            <div class="story-header-right">
+                The Writing Desk · Fiction
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =====================================
+             TITLE
+        ====================================== -->
+
+        <section class="story-title-section">
+
+
+            <div class="story-category">
+                Short Story
+            </div>
+
+
+            <h1 class="story-title">
+                WORTHY HUMANS
+            </h1>
+
+
+            <div class="story-ornament"></div>
+
+
+            <div class="story-subtitle">
+                A work in progress
+            </div>
+
+
+            <div class="story-wip">
+
+                <span class="story-wip-dot"></span>
+
+                Work in progress
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             STORY
+        ====================================== -->
+
+        <article class="story-reading">
+
+
+            <div class="story-opening">
+
+
+                <p>
+                    “I am going to kill that bastard!
+                    Who does he think he is?” Raghav yells
+                    as he enters the room, while Veer closes
+                    the door behind him.
+                </p>
+
+
+                <p>
+                    “How the hell did this dimwit rise to a
+                    managerial position?” laments Raghav as
+                    Veer hands him a cold water bottle from
+                    the fridge.
+                </p>
+
+
+                <p>
+                    Raghav has been working as a customer
+                    support representative for a tech company
+                    that he joined about three months ago.
+                    He goes at 9 and comes back by 8, all
+                    worked up and tired. His boss keeps
+                    demanding more out of him, always
+                    criticising his methods. The tucked-in
+                    shirt is out, and the shoes are dirty.
+                    Resembling his mental and physical state.
+                </p>
+
+
+                <p>
+                    “For the amount of money they give you,
+                    it's okay for them to exploit you a little
+                    bit”, says Veer as he chuckles while he
+                    sits on the mat working on his laptop.
+                </p>
+
+
+                <p>
+                    “Yeah, easy for you to say, you lazy,
+                    unemployed piece of shit.”
+                </p>
+
+
+                <p>
+                    “ Ayy, don't call me lazy or unemployed;
+                    I am an aspirant. Put some respect on
+                    that,” says Veer while adjusting his tie
+                    imaginatively.
+                </p>
+
+
+            </div>
+
+
+
+            <div class="story-body">
+
+
+                <p>
+                    Veer has been preparing for banking exams
+                    for the past year and has been able to clear
+                    the pre once. Straight after graduation, he
+                    set his eyes on the government exam,
+                    chasing a stable job that gives him a
+                    pension when he is no longer able to work.
+                    While he denies it's his father's wish for
+                    him to take up a government job because he
+                    thinks in India, a government job brings
+                    stability that no other job can. Veer just
+                    wants to pass the exam, but deep down, he
+                    just wants to be seen. To become the person
+                    his parents always wanted him to be.
+                </p>
+
+
+                <p>
+                    Raghav loosens his tie, takes his shoes off,
+                    and leaves them at the door itself.
+                </p>
+
+
+                <p>
+                    “It's 9 pm already, where's that aspiring
+                    desi Wes Anderson? He was supposed to bring
+                    some food, wasn't he?”
+                </p>
+
+
+                <p>
+                    Veer doesn't respond immediately. His eyes
+                    are glued to the screen, and he is frantically
+                    scrolling.
+                </p>
+
+
+                <p>
+                    “Got your hands on some secret documents or
+                    what? What are you scrolling?”
+                </p>
+
+
+                <p>
+                    Veer stops and pauses for a minute; he
+                    doesn’t say anything. There is silence in
+                    the room, only the sound of Raghav shuffling
+                    around the room.
+                </p>
+
+
+                <p>
+                    “ I missed the cutoff by one mark”, says
+                    Veer with a poker face and hangs his head.
+                </p>
+
+
+                <p>
+                    It was Veer’s second attempt at the banking
+                    job, having failed to clear the first attempt.
+                </p>
+
+
+                <p>
+                    Raghav glanced over while he washed his face
+                    in a small basin that was the only new and
+                    pristine piece of accessory they had in their
+                    small 1bhk room in a tightly packed student
+                    area in Lane 4 of Laxmi Nagar.
+                </p>
+
+
+                <p>
+                    “Shit happens” says Raghav with no expression
+                    on his face.
+                </p>
+
+
+                <p>
+                    There is silence again, and only the sound of
+                    running water can be heard. As soon as silence
+                    starts taking over the room, the room is filled
+                    with a sharp shrill of the doorbell.
+                </p>
+
+
+                <p>
+                    Raghav flinches as the sound makes his ears
+                    ring. He opens the door hurriedly.
+                </p>
+
+
+                <p>
+                    “Can't you just ring the bell once and wait
+                    patiently?” says Raghav.
+                </p>
+
+
+                <p>
+                    At the door is Akhil, holding up two polythene
+                    bags. Raghav can smell the steaming hot momos
+                    as the fresh smell of chutney hits his nostrils,
+                    and he grabs the bags from Akhil.
+                </p>
+
+
+                <p>
+                    “You're welcome”, says Akhil as he smirks.
+                </p>
+
+
+                <p>
+                    “ 3 plates of freshly made MOMS, Akhil laughs
+                    at his own joke.
+                </p>
+
+
+                <p>
+                    It's from their favourite stall that has got
+                    the spelling of momos all wrong, but they
+                    haven't messed up the recipes and serve
+                    lip-smacking momos with spicy chutney that
+                    makes you sweat and leaves you panting for
+                    water as you gulp down more of them.
+                </p>
+
+
+                <p>
+                    Akhil is from Delhi and lives with his family.
+                    He always had a passion for filmmaking, but did
+                    engineering as he wasn't really aware that
+                    filmmaking was his true calling. In his four
+                    years of graduation, he understood one thing,
+                    and that was that he shouldn't have done
+                    engineering. Akhil didn't sit for placement,
+                    and with the kind of marks he had, he knew his
+                    chances were slim. He started doing freelancing
+                    work for a firm.
+                </p>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 CONTINUATION
+            ====================================== -->
+
+            <div class="story-continuation">
+
+                — continued —
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="story-footer">
+
+
+            <span>
+                The Writing Desk · Stories
+            </span>
+
+
+            <span class="story-footer-status">
+
+                ● Work in progress
+
+            </span>
+
+
+        </footer>
+
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>
